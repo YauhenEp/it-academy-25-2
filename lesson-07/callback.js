@@ -22,5 +22,3 @@ fse.emptyDir(folderOne, () => {
 })
 
 
-
-

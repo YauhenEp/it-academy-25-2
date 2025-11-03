@@ -1,0 +1,17 @@
+{
+  "name": "mochajs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter mochawesome"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^6.2.0",
+    "mocha": "^11.7.4",
+    "mochawesome": "^7.1.4"
+  }
+}

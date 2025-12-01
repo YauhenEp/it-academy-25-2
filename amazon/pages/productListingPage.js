@@ -12,6 +12,22 @@ class ProductListingPage extends Base {
     async getCategoryCardByName(categoryCardName) {
         return `//h3[contains(text(),'${categoryCardName}')]//ancestor::a`
     }
+
+    async clickFirstItem() {
+        await this.items[0].click();
+    }
+
+    async clickLastItem() {
+        await this.items[this.items.length - 1].click();
+    }
+
+    async clickCategoryForChildren() {
+        await this.getCategoryCardByName('For Children').click();
+    }
+
+    async clickCategoryForAdults() {
+        await this.getCategoryCardByName('For Adults').click();
+    }
 } 
 
 export {ProductListingPage}

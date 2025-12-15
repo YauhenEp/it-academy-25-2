@@ -8,4 +8,9 @@ const CONSTANTS = {
     }
 }
 
+async function clickWithJS() {
+    await browser.execute(() => {
+        document.querySelector().click()
+    })
+}
 export { CONSTANTS }

@@ -6,6 +6,7 @@ import header from './components/header.js'
  */
 class MainPage extends Base {
     constructor() {
+        super();
         this.header = header;
     }
 }

@@ -7,6 +7,24 @@ on:
   pull_request:
     branches:
       - "**"
+  workflow_dispatch:
+    inputs:
+      test-suite:
+        description: 'Select the test suite to run'
+        required: true
+        default: 'jestjs'
+        options:
+          - jestjs
+          - mochajs
+       env:   
+        description: 'Select env'
+        required: true
+        default: 'dev'
+        options:
+          - dev
+          - prod
+          - test
+          - stage
 
 jobs:
   test:

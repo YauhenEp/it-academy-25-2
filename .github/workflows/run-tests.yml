@@ -16,7 +16,7 @@ on:
         options:
           - jestjs
           - mochajs
-       env:   
+      env:   
         description: 'Select env'
         required: true
         default: 'dev'

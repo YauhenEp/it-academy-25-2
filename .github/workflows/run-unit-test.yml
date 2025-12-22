@@ -17,9 +17,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies
-        working-directory: ./mocha.js
+        working-directory: ./mochajs
         run: npm install
 
       - name: Run unit tests
-        working-directory: ./mocha.js
+        working-directory: ./mochajs
         run: npm run test

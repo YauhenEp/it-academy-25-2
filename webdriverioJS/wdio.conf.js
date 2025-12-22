@@ -228,8 +228,29 @@ export const config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: async function () {
+        await browser.addCommand('waitForPageLoad', async function (timeoutOptions = 10000) {
+            return this.waitUntil(
+            async () => {
+                await browser.execute(() => {
+                    window.onload = function () {
+                    document['onloadComplete'] = true;
+                    };
+                });
+                const documentStateIsReady = await this.execute(() => document.readyState === 'complete');
+                const onLoadComplete = await this.execute(() => document['onloadComplete']);
+            if (params.browser.includes('ios')) {
+                return documentStateIsReady && onLoadComplete;
+            }
+                return documentStateIsReady;
+            },
+            {
+                ...timeoutOptions,
+                timeoutMsg: `Expected page to be loaded`,
+            },
+      );
+    });
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {string} commandName hook command name

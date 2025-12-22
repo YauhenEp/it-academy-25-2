@@ -1,0 +1,25 @@
+name: Run unit tests with Mocha
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        working-directory: ./mocha.js
+        run: npm install
+
+      - name: Run unit tests
+        working-directory: ./mocha.js
+        run: npm run test
